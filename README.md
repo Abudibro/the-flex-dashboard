@@ -1,5 +1,7 @@
 # Flex Living Reviews Dashboard – Developer Assessment Report
 
+LIVE APP: https://the-flex-dashboard.vercel.app/
+
 ## 1. Tech Stack Used
 
 - **Frontend:** React (TypeScript/JavaScript), Tailwind CSS
