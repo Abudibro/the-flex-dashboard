@@ -69,8 +69,8 @@
 4. **Start the backend:**
    - `npm run dev` (from `backend` directory)
 5. **Start the frontend:**
-   - `cd app && npm install --legacy-peer-deps`
-   - `npm start` (from `app` directory)
+   - `cd frontend && npm install --legacy-peer-deps`
+   - `npm start` (from `frontend` directory)
 6. **Access the dashboard:**
    - Open [http://localhost:3000](http://localhost:3000) in your browser
 

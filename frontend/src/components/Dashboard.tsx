@@ -1,13 +1,10 @@
-import CategoryToggleChart from './CategoryToggleChart';
-
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import CategoryToggleChart from './CategoryToggleChart';
 import { fetchLocations } from '../api/propertyReviews';
 import type { Listing, Review } from '../types/hostaway';
 import PropertyCard from './PropertyCard';
 import ReviewsTable from './ReviewsTable';
-import SeriesGraph from './trend/SeriesGraph';
-import BigTrendChart from './BigTrendChart';
+
 const Dashboard: React.FC = () => {
   const [listings, setListings] = useState<Listing[]>([]);
   const [loading, setLoading] = useState(true);
