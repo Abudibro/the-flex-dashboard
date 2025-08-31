@@ -1,0 +1,65 @@
+Flex Living Reviews Dashboard – Developer Assessment Report
+
+1. Tech Stack Used
+
+Frontend: React (TypeScript/JavaScript), Tailwind CSS
+Backend: Node.js (ESM), Express
+Database: lowdb (JSON-based, for mock data)
+Other: Google Maps Embed (for property location), Mocked Hostaway API integration
+
+2. Key Design and Logic Decisions
+
+Hostaway Integration & Data Normalization
+- The backend exposes /api/reviews/hostaway, which fetches and normalizes reviews from mock data based on the provided Hostaway JSON structure.
+- Reviews are normalized by listing, review type, channel, and date, and associated with properties using listingId.
+- The backend can be easily extended to use real Hostaway API data if available.
+
+Mock Data
+- Large, realistic mock datasets are generated for both properties and reviews, matching the Hostaway schema.
+- Each property has 5 images and 100 reviews, with ratings and categories as per the spec.
+
+Dashboard UI/UX
+- The dashboard is modern, clean, and responsive, using Tailwind CSS for styling.
+- Managers can:
+  • View per-property performance (average rating, review count, trends)
+  • Filter reviews by rating (0–10), category, channel, type, status, property, and date
+  • Search reviews by guest name, review text, or property name
+  • Spot trends and recurring issues via interactive charts
+  • Select which reviews are approved for public display
+- All ratings are displayed as whole numbers; averages are rounded to 1 or 2 decimal places for clarity.
+
+Review Display Page
+- The property details page replicates the Flex Living website layout, including a dedicated guest reviews section.
+- Only reviews approved by the manager are shown in the public section.
+- All 5 property images are displayed, with the main image featured prominently.
+
+API Behaviors
+- /api/reviews/hostaway returns normalized, structured review data for all properties.
+- The API is robust to missing or malformed data and can be extended to support real API calls.
+
+3. Google Reviews Findings
+
+Exploration:
+- The Google Places API can be used to fetch Google Reviews for a property if the Place ID is known.
+- However, Google restricts direct access to review content via the API for most use cases (only summary ratings and counts are reliably available).
+- Embedding a Google Maps widget is feasible and implemented for property location, but full Google Reviews integration is not possible without violating API terms or requiring manual Place ID mapping.
+Implementation:
+- The project includes Google Maps embeds for property locations.
+- No direct Google Reviews are shown, but the codebase is structured to allow future integration if API access changes.
+
+4. Local Setup Instructions
+
+1. Clone the repository
+2. Install dependencies:
+   • cd backend && npm install
+   • cd ../frontend && npm install
+3. Seed the database:
+   • cd ../backend && node db/seed.js
+4. Start the backend:
+   • npm run dev (from backend directory)
+5. Start the frontend:
+   • npm start (from frontend directory)
+6. Access the dashboard:
+   • Open http://localhost:3000 in your browser
+
+Contact: abdurahmanhijazi (for any questions or clarifications)
