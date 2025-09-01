@@ -390,6 +390,8 @@ const PropertyReviews: React.FC = () => {
                     r.id === id ? { ...r, visibility: nextVisibility } : r
                   )
                 }));
+                // Force filteredReviews to recalculate by updating filters with a dummy value
+                setFilters(prev => ({ ...prev, _refresh: Math.random() }));
                 try {
                   await import('../api/propertyReviews').then(mod => mod.updateReview({ id, visibility: nextVisibility }));
                 } catch (e) {
